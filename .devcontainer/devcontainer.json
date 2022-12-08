@@ -1,0 +1,7 @@
+{
+    "name": "AssemblyScript WASM",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    }
+}

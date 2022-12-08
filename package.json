@@ -1,0 +1,17 @@
+{
+    "type": "module",
+    "exports": {
+      ".": {
+        "import": "./build/main.js",
+        "types": "./build/main.d.ts"
+      }
+    },
+    "scripts": {
+      "build": "asc main.ts --target release",
+      "start": "wasmtime build/main.wasm"
+    },
+    "devDependencies": {
+      "@assemblyscript/wasi-shim": "^0.1.0",
+      "assemblyscript": "^0.24.1"
+    }
+  }
