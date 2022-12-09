@@ -23,8 +23,6 @@ Visual studio should prompt you to see if you want to relaunch the workspace in 
 
 # Building and Running
 
-*Note* There is currently a bug 
-
 ```sh
 npm install
 npm run build
