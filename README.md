@@ -26,5 +26,5 @@ Visual studio should prompt you to see if you want to relaunch the workspace in 
 ```sh
 npm install
 npm run build
- wasmtime build/main.wasm --dir .
+wasmtime build/main.wasm --dir .
 ```
