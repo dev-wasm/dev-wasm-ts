@@ -23,8 +23,16 @@ Visual studio should prompt you to see if you want to relaunch the workspace in 
 
 # Building and Running
 
+## Simple Example
+There is a simple example in the `simple` directory. To build and run:
+
 ```sh
+cd simple
 npm install
 npm run build
 wasmtime build/main.wasm --dir .
 ```
+
+## HTTP client example
+There is a more complicated example in the [`http` directory](./http/) which shows an example 
+of making an HTTP client call using the experimental wasi+http support in `wasmtime-http`.
