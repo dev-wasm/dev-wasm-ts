@@ -48,4 +48,4 @@ your codespace.
 
 ## HTTP client example
 There is a more complicated example in the [`http` directory](./http/) which shows an example 
-of making an HTTP client call using the experimental wasi+http support in `wasmtime-http`.
+of making an HTTP client call using the experimental wasi+http support in [`wasmtime-http`](https://github.com/brendandburns/wasmtime).
