@@ -33,6 +33,19 @@ npm run build
 wasmtime build/main.wasm --dir .
 ```
 
+## Web serving with WAGI
+There is an example of a WAGI web server in the `webserver` directory:
+
+```sh
+cd webserver
+npm install
+npm run build
+npm run start
+```
+This will start a simple web server powered by lighttpd running on port localhost:8080. If you
+are running in Github codespaces, it should prompt you to open a browser that will forward to
+your codespace.
+
 ## HTTP client example
 There is a more complicated example in the [`http` directory](./http/) which shows an example 
 of making an HTTP client call using the experimental wasi+http support in `wasmtime-http`.
