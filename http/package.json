@@ -8,14 +8,13 @@
     },
     "scripts": {
         "build": "asc main.ts --target release",
-        "start": "wasmtime-http --wasi-modules=experimental-wasi-http build/main.wasm"
+        "start": "wasmtime --wasi-modules=experimental-wasi-http build/main.wasm"
     },
     "devDependencies": {
         "@assemblyscript/wasi-shim": "^0.1.0",
         "assemblyscript": "^0.24.1"
     },
     "dependencies": {
-        "@deislabs/wasi-experimental-http": "^0.10.0",
         "as-wasi": "github:jedisct1/as-wasi"
     }
 }
