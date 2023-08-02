@@ -5,34 +5,36 @@ export type WasiPtr<T> = usize;
 type WasiMutPtr<T> = usize;
 type WasiStringBytesPtr = WasiPtr<Char8>;
 
-@external("types", "new-outgoing-request")
+@external("wasi:http/types", "new-outgoing-request")
 export declare function new_outgoing_request(
     method: WasiHandle,
     method_ptr: WasiPtr<Char8>,
     method_len: usize,
+    path_is_some: usize,
     path_ptr: WasiPtr<Char8>,
     path_len: usize,
-    query_ptr: WasiPtr<Char8>,
-    query_len: usize,
+//    query_ptr: WasiPtr<Char8>,
+//    query_len: usize,
     scheme_is_some: usize,
     scheme: usize,
     scheme_ptr: WasiPtr<Char8>,
     scheme_len: usize,
+    authority_is_some: usize,
     authority_ptr: WasiPtr<Char8>,
     authority_len: usize,
     headers: usize,
 ): WasiHandle;
 
-@external("types", "outgoing-request-write")
+@external("wasi:http/types", "outgoing-request-write")
 export declare function outgoing_request_write(request: WasiHandle, stream_ptr: WasiPtr<WasiHandle>): void;
 
-@external("types", "new-fields")
+@external("wasi:http/types", "new-fields")
 export declare function new_fields(
     fields_ptr: WasiPtr<usize>,
     fields_len: usize,
 ): WasiHandle;
 
-@external("default-outgoing-HTTP", "handle")
+@external("wasi:http/outgoing-handler", "handle")
 export declare function handle(
   request: WasiHandle,
   a: usize,
@@ -44,22 +46,22 @@ export declare function handle(
   g: usize,
 ): WasiHandle;
 
-@external("types", "future-incoming-response-get")
+@external("wasi:http/types", "future-incoming-response-get")
 export declare function future_incoming_response_get(handle: WasiHandle, ptr: WasiPtr<WasiHandle>): void;
 
-@external("types", "incoming-response-status")
+@external("wasi:http/types", "incoming-response-status")
 export declare function incoming_response_status(handle: WasiHandle): usize;
 
-@external("types", "incoming-response-headers")
+@external("wasi:http/types", "incoming-response-headers")
 export declare function incoming_response_headers(handle: WasiHandle): WasiHandle;
 
-@external("types", "incoming-response-consume")
+@external("wasi:http/types", "incoming-response-consume")
 export declare function incoming_response_consume(handle: WasiHandle, ptr: WasiPtr<u8>): void;
 
-@external("streams", "read")
+@external("wasi:io/streams", "read")
 export declare function streams_read(handle: WasiHandle, len: i64, ptr: WasiPtr<Char8>): void;
 
-@external("streams", "write")
+@external("wasi:io/streams", "write")
 export declare function streams_write(handle: WasiHandle, ptr: WasiPtr<Char8>, len: usize, result: WasiPtr<WasiHandle>): void;
 
 
