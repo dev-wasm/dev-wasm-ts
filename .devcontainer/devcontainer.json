@@ -1,11 +1,13 @@
 {
     "image": "ubuntu:jammy",
     "remoteEnv": {
-	"PATH": "${containerEnv:PATH}:/usr/local/lib/wasi-sdk-20.0/bin"
+	"PATH": "${containerEnv:PATH}:/usr/local/lib/wasi-sdk-20.0/bin:/usr/local/lib"
     },
     "features": {
-        "devwasm.azurecr.io/dev-wasm/dev-wasm-feature/wasmtime-wasi:0.0.8": {
-            "version": "20"
+        "devwasm.azurecr.io/dev-wasm/dev-wasm-feature/wasmtime-wasi:0.0.9": {
+            "version": "20",
+            "wasmtime_version": "v11.0.1",
+            "wit_version": "0.8.0"
         },
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/common-utils": {}

@@ -89,11 +89,10 @@ export function request(method: string, url: string, body: string | null, header
     }
     let header_handle = raw.new_fields(header_ptr, header_length);
 
-    let path = new raw.WasiString(u.path);
+    let path = new raw.WasiString(u.path + (u.query.length > 0 ? (u.query) : ""));
     let authority = new raw.WasiString(u.authority);
-    let query = new raw.WasiString(u.query);
     let m = getMethod(method);
-    let req = raw.new_outgoing_request(m, 0, 0, path.ptr, path.length, query.ptr, query.length, 0, 0, 0, 0, authority.ptr, authority.length, header_handle);
+    let req = raw.new_outgoing_request(m, 0, 0, 1, path.ptr, path.length, 0, 0, 0, 0, 1, authority.ptr, authority.length, header_handle);
 
     let res: raw.WasiPtr<raw.WasiHandle>;
 
